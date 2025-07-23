@@ -5,32 +5,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif; /* 更现代的无衬线字体 */
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 html {
-    scroll-behavior: smooth; /* 平滑滚动 */
+    scroll-behavior: smooth;
 }
 
 body {
-    color: #202124; /* 深灰主色，提升可读性 */
+    color: #202124;
     line-height: 1.6;
     background-color: #ffffff;
 }
 
 a {
     text-decoration: none;
-    color: #1a73e8; /* 主题蓝，保持学术网站专业感 */
+    color: #1a73e8;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #0d47a1; /* 深蓝 hover 效果 */
+    color: #0d47a1;
     text-decoration: underline;
 }
 
 .container {
-    max-width: 1100px; /* 加宽内容区，提升阅读体验 */
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -40,7 +40,7 @@ a:hover {
 ============================================== */
 .navbar {
     background-color: #ffffff;
-    border-bottom: 1px solid #e8eaed; /* 浅灰边框，替代阴影 */
+    border-bottom: 1px solid #e8eaed;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -50,7 +50,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px; /* 紧凑导航栏 */
+    padding: 12px 20px;
 }
 
 .logo {
@@ -62,7 +62,7 @@ a:hover {
 
 .nav-links {
     display: flex;
-    gap: 28px; /* 加宽导航间距 */
+    gap: 28px;
 }
 
 .nav-links a {
@@ -81,9 +81,9 @@ a:hover {
    头部横幅（Hero Section）
 ============================================== */
 .hero {
-    padding: 80px 0 60px; /* 上宽下窄，聚焦标题 */
+    padding: 80px 0 60px;
     text-align: center;
-    background-color: #fafafa; /* 极浅灰背景，突出内容 */
+    background-color: #fafafa;
 }
 
 .hero-content {
@@ -91,17 +91,15 @@ a:hover {
     margin: 0 auto;
 }
 
-/* 主标题放大，参考 openvla 风格 */
 .main-title {
     font-size: 4.0rem;
     font-weight: 800;
-    letter-spacing: -0.04em; /* 紧凑字间距 */
-    line-height: 1.05; /* 紧凑行高 */
+    letter-spacing: -0.04em;
+    line-height: 1.05;
     margin-bottom: 0.7rem;
     color: #202124;
 }
 
-/* 副标题强化定位 */
 .subtitle {
     font-size: 3.0rem;
     color: #5f6368;
@@ -113,7 +111,6 @@ a:hover {
     letter-spacing: -0.01em;
 }
 
-/* 作者与机构信息（弱化处理，不抢焦点） */
 .authors {
     margin: 1.8rem 0 2.2rem;
     font-size: 1.5rem;
@@ -139,12 +136,11 @@ a:hover {
 }
 
 .affiliation-logo {
-    height: 26px; /* 适中logo尺寸 */
+    height: 26px;
     width: auto;
-    filter: contrast(0.9); /* 轻微降低对比度，避免突兀 */
+    filter: contrast(0.9);
 }
 
-/* 按钮样式优化 */
 .hero-buttons {
     display: flex;
     justify-content: center;
@@ -157,7 +153,7 @@ a:hover {
     padding: 11px 24px;
     background-color: #1a73e8;
     color: white;
-    border-radius: 6px; /* 稍圆角，更现代 */
+    border-radius: 6px;
     font-weight: 500;
     font-size: 1rem;
     letter-spacing: -0.01em;
@@ -168,7 +164,7 @@ a:hover {
 
 .btn:hover {
     background-color: #0d47a1;
-    transform: translateY(-1px); /* 轻微上浮效果 */
+    transform: translateY(-1px);
     text-decoration: none;
 }
 
@@ -183,10 +179,10 @@ a:hover {
 }
 
 /* ==============================================
-   主要内容区域
+   主要内容区域（添加两端对齐）
 ============================================== */
 .section {
-    padding: 70px 0; /* 充足留白，提升呼吸感 */
+    padding: 70px 0;
 }
 
 h2 {
@@ -197,7 +193,7 @@ h2 {
     letter-spacing: -0.02em;
     border-bottom: 2px solid #1a73e8;
     padding-bottom: 10px;
-    display: inline-block; /* 边框长度与文字匹配 */
+    display: inline-block;
 }
 
 h3 {
@@ -208,14 +204,16 @@ h3 {
     letter-spacing: -0.01em;
 }
 
+/* 核心文本两端对齐 */
 .content p {
     font-size: 1.05rem;
     margin-bottom: 1.2rem;
     color: #3c4043;
     line-height: 1.7;
+    text-align: justify; /* 两端对齐 */
+    text-justify: inter-ideograph; /* 优化中文对齐 */
 }
 
-/* 核心亮点卡片 */
 .key-points {
     display: flex;
     gap: 24px;
@@ -232,7 +230,7 @@ h3 {
 }
 
 .point:hover {
-    transform: translateY(-3px); /* 悬浮轻微上浮 */
+    transform: translateY(-3px);
 }
 
 .point h3 {
@@ -241,27 +239,28 @@ h3 {
     font-size: 1.2rem;
 }
 
+/* 要点文本两端对齐 */
 .point p {
     font-size: 1rem;
     color: #5f6368;
     line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-ideograph;
 }
 
-/* 交替背景色区域 */
 .section-alt {
     background-color: #f8f9fa;
 }
 
-/* 图表样式 */
 .figure {
     text-align: center;
-    margin: 50px 0; /* 加大图表上下间距 */
+    margin: 50px 0;
 }
 
 .figure-img {
-    max-width: 90%; /* 图表更宽，提升细节可见度 */
+    max-width: 90%;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* 轻微阴影，突出图表 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #e8eaed;
 }
 
@@ -275,12 +274,11 @@ h3 {
     margin-right: auto;
 }
 
-/* 子章节间距 */
 .subsection {
     margin-bottom: 50px;
 }
 
-/* 列表样式优化 */
+/* 列表文本两端对齐 */
 ul {
     margin: 1.2rem 0 1.2rem 1.5rem;
 }
@@ -290,9 +288,10 @@ li {
     color: #3c4043;
     margin-bottom: 0.8rem;
     line-height: 1.7;
+    text-align: justify;
+    text-justify: inter-ideograph;
 }
 
-/* 资源卡片区域 */
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -322,7 +321,6 @@ li {
     margin-bottom: 12px;
 }
 
-/* BibTeX 样式 */
 .bibtex {
     background-color: #2d2d2d;
     color: #f8f8f2;
@@ -362,12 +360,11 @@ li {
 }
 
 /* ==============================================
-   响应式设计（适配不同屏幕）
+   响应式设计
 ============================================== */
-/* 平板设备 */
 @media (max-width: 768px) {
     .main-title {
-        font-size: 3rem; /* 标题缩小但保持醒目 */
+        font-size: 3rem;
     }
     
     .subtitle {
@@ -407,10 +404,9 @@ li {
     }
 }
 
-/* 手机设备 */
 @media (max-width: 480px) {
     .main-title {
-        font-size: 2.2rem; /* 进一步缩小以适配手机 */
+        font-size: 2.2rem;
     }
     
     .subtitle {
