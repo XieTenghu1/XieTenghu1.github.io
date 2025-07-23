@@ -258,7 +258,7 @@ h3 {
 }
 
 .figure-restricted {
-    max-width: 200px; /* 不限制宽度，可占满容器 */
+    max-width: 20px; /* 不限制宽度，可占满容器 */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -266,7 +266,7 @@ h3 {
 }
 
 .figure-img {
-    max-width: 100%; /* 不限制宽度，可占满容器 */
+    max-width: 500px; /* 不限制宽度，可占满容器 */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
