@@ -1,54 +1,46 @@
-/* Base Reset */
+/* ==============================================
+   基础样式重置与全局配置
+============================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif; /* 更现代的无衬线字体 */
 }
 
-/* Global Styles */
+html {
+    scroll-behavior: smooth; /* 平滑滚动 */
+}
+
 body {
-    color: #333;
+    color: #202124; /* 深灰主色，提升可读性 */
     line-height: 1.6;
+    background-color: #ffffff;
 }
 
 a {
     text-decoration: none;
-    color: #1a73e8;
+    color: #1a73e8; /* 主题蓝，保持学术网站专业感 */
+    transition: color 0.2s ease;
 }
 
 a:hover {
+    color: #0d47a1; /* 深蓝 hover 效果 */
     text-decoration: underline;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px; /* 加宽内容区，提升阅读体验 */
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.section {
-    padding: 60px 0;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #202124;
-    border-bottom: 2px solid #1a73e8;
-    padding-bottom: 10px;
-}
-
-h3 {
-    font-size: 1.4rem;
-    margin: 20px 0 15px;
-    color: #202124;
-}
-
-/* Navigation Bar */
+/* ==============================================
+   导航栏样式
+============================================== */
 .navbar {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    border-bottom: 1px solid #e8eaed; /* 浅灰边框，替代阴影 */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -58,23 +50,26 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 12px 20px; /* 紧凑导航栏 */
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: 600;
     color: #202124;
+    letter-spacing: -0.02em;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 28px; /* 加宽导航间距 */
 }
 
 .nav-links a {
     color: #5f6368;
     font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
 }
 
 .nav-links a:hover {
@@ -82,220 +77,370 @@ h3 {
     text-decoration: none;
 }
 
-/* Hero Section */
+/* ==============================================
+   头部横幅（Hero Section）
+============================================== */
 .hero {
-    background-color: #f8f9fa;
-    padding: 80px 0;
+    padding: 80px 0 60px; /* 上宽下窄，聚焦标题 */
     text-align: center;
+    background-color: #fafafa; /* 极浅灰背景，突出内容 */
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
+/* 主标题放大，参考 openvla 风格 */
+.main-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em; /* 紧凑字间距 */
+    line-height: 1.05; /* 紧凑行高 */
+    margin-bottom: 0.7rem;
     color: #202124;
 }
 
-.tagline {
-    font-size: 1.2rem;
+/* 副标题强化定位 */
+.subtitle {
+    font-size: 1.55rem;
     color: #5f6368;
-    margin-bottom: 30px;
     font-weight: 500;
+    margin-bottom: 2.5rem;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: -0.01em;
 }
 
-/* Authors and Affiliations */
+/* 作者与机构信息（弱化处理，不抢焦点） */
 .authors {
-    margin: 2rem 0;
-    text-align: center;
-}
-
-.authors p {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    color: #333;
+    margin: 1.8rem 0 2.2rem;
+    font-size: 0.98rem;
+    color: #3c4043;
+    line-height: 1.7;
 }
 
 .affiliations {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 2.2rem;
     flex-wrap: wrap;
+    margin-top: 0.8rem;
 }
 
 .affiliation {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    color: #5f6368;
 }
 
 .affiliation-logo {
-    height: 30px;
+    height: 26px; /* 适中logo尺寸 */
     width: auto;
-    filter: grayscale(0.2); /* Subtle logo styling */
+    filter: contrast(0.9); /* 轻微降低对比度，避免突兀 */
 }
 
-/* Hero Buttons */
+/* 按钮样式优化 */
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 16px;
+    margin-top: 1.5rem;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 11px 24px;
     background-color: #1a73e8;
     color: white;
-    border-radius: 4px;
+    border-radius: 6px; /* 稍圆角，更现代 */
     font-weight: 500;
-    transition: background-color 0.3s;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    transition: all 0.25s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
     background-color: #0d47a1;
+    transform: translateY(-1px); /* 轻微上浮效果 */
     text-decoration: none;
 }
 
 .btn-secondary {
-    background-color: #5f6368;
+    background-color: #f1f3f4;
+    color: #202124;
 }
 
 .btn-secondary:hover {
-    background-color: #3c4043;
+    background-color: #e8eaed;
+    color: #202124;
 }
 
-/* Key Points Section */
+/* ==============================================
+   主要内容区域
+============================================== */
+.section {
+    padding: 70px 0; /* 充足留白，提升呼吸感 */
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    color: #202124;
+    letter-spacing: -0.02em;
+    border-bottom: 2px solid #1a73e8;
+    padding-bottom: 10px;
+    display: inline-block; /* 边框长度与文字匹配 */
+}
+
+h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 30px 0 18px;
+    color: #202124;
+    letter-spacing: -0.01em;
+}
+
+.content p {
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    color: #3c4043;
+    line-height: 1.7;
+}
+
+/* 核心亮点卡片 */
 .key-points {
     display: flex;
-    gap: 20px;
-    margin-top: 30px;
+    gap: 24px;
+    margin: 40px 0;
 }
 
 .point {
     flex: 1;
-    padding: 20px;
+    padding: 28px;
     background-color: #f8f9fa;
     border-radius: 8px;
+    border: 1px solid #e8eaed;
+    transition: transform 0.2s ease;
+}
+
+.point:hover {
+    transform: translateY(-3px); /* 悬浮轻微上浮 */
 }
 
 .point h3 {
     color: #1a73e8;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
 }
 
-/* Alternate Section Styling */
+.point p {
+    font-size: 1rem;
+    color: #5f6368;
+    line-height: 1.6;
+}
+
+/* 交替背景色区域 */
 .section-alt {
     background-color: #f8f9fa;
 }
 
-/* Figures */
+/* 图表样式 */
 .figure {
     text-align: center;
-    margin: 40px 0;
+    margin: 50px 0; /* 加大图表上下间距 */
 }
 
 .figure-img {
-    max-width: 80%;
-    border: 1px solid #ddd;
+    max-width: 90%; /* 图表更宽，提升细节可见度 */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* 轻微阴影，突出图表 */
+    border: 1px solid #e8eaed;
 }
 
 .figure-caption {
-    margin-top: 10px;
+    margin-top: 15px;
     color: #5f6368;
     font-style: italic;
     font-size: 0.95rem;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Subsections */
+/* 子章节间距 */
 .subsection {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-/* Resources Grid */
+/* 列表样式优化 */
+ul {
+    margin: 1.2rem 0 1.2rem 1.5rem;
+}
+
+li {
+    font-size: 1.05rem;
+    color: #3c4043;
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+/* 资源卡片区域 */
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
+    gap: 24px;
+    margin-top: 40px;
 }
 
 .resource-card {
-    padding: 20px;
+    padding: 28px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid #e8eaed;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .resource-card h3 {
     color: #1a73e8;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .resource-card ul {
-    list-style-position: inside;
+    margin-left: 0;
+    padding-left: 1.2rem;
 }
 
 .resource-card li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
+/* BibTeX 样式 */
 .bibtex {
     background-color: #2d2d2d;
     color: #f8f8f2;
-    padding: 15px;
-    border-radius: 4px;
-    font-family: monospace;
+    padding: 20px;
+    border-radius: 6px;
+    font-family: 'SFMono-Regular', Consolas, monospace;
     overflow-x: auto;
     font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 15px;
 }
 
-/* Footer */
+/* ==============================================
+   页脚样式
+============================================== */
 .footer {
-    background-color: #202124;
-    color: white;
-    padding: 30px 0;
+    background-color: #f1f3f4;
+    color: #5f6368;
+    padding: 40px 0 30px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
 }
 
 .footer a {
-    color: #bbb;
+    color: #5f6368;
+    transition: color 0.2s ease;
 }
 
 .footer a:hover {
-    color: white;
+    color: #1a73e8;
+    text-decoration: none;
 }
 
-/* Responsive Design */
+/* ==============================================
+   响应式设计（适配不同屏幕）
+============================================== */
+/* 平板设备 */
 @media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem; /* 标题缩小但保持醒目 */
+    }
+    
+    .subtitle {
+        font-size: 1.3rem;
+        max-width: 95%;
+    }
+    
     .nav-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        padding: 15px 20px;
     }
-
+    
+    .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
     .key-points {
         flex-direction: column;
+        gap: 18px;
     }
-
+    
     .affiliations {
+        gap: 1.5rem;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
     }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
+    
     .figure-img {
         max-width: 100%;
+    }
+    
+    .figure-caption {
+        max-width: 100%;
+    }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.2rem; /* 进一步缩小以适配手机 */
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero {
+        padding: 60px 0 40px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .section {
+        padding: 50px 0;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
     }
 }
