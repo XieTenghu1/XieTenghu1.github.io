@@ -1,7 +1,7 @@
 # TruckV2X Project Website
 
 这是 TruckV2X 项目的展示网站，用于介绍该项目的研究背景、技术方案、实验结果及相关资源。  
-网站在线地址：[https://xietenghu1.github.io/truckv2x/](https://xietenghu1.github.io/truckv2x/)
+网站在线地址：[https://xietenghu1.github.io/TruckV2X/](https://xietenghu1.github.io/TruckV2X/)
 
 ## 网站结构
 - `index.html`：首页，包含项目核心内容（概述、方法、实验、资源等）
