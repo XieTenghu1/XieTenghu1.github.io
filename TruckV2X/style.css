@@ -267,7 +267,7 @@ h3 {
 }
 
 /* 仅对fig1生效的宽度限制 */
-.fig1-restricted {
+.figure-restricted {
     max-width: 50%; /* 不限制宽度，可占满容器 */
     height: auto;
     border-radius: 8px;
