@@ -252,22 +252,25 @@ h3 {
     background-color: #f8f9fa;
 }
 
+/* 容器样式：确保图片居中 */
 .figure {
     text-align: center;
     margin: 50px 0;
 }
 
+/* 仅用于 fig1 的半栏样式（50% 宽度） */
 .figure-restricted {
-    max-width: 20px; /* 不限制宽度，可占满容器 */
-    height: auto;
+    max-width: 50%; /* 半栏宽度（相对于父容器） */
+    height: auto; /* 保持比例 */
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #e8eaed;
 }
 
+/* 其他图片的整栏样式（100% 宽度） */
 .figure-img {
-    max-width: 500px; /* 不限制宽度，可占满容器 */
-    height: auto;
+    max-width: 100%; /* 整栏宽度（占满父容器） */
+    height: auto; /* 保持比例 */
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #e8eaed;
