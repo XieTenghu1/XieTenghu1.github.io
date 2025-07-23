@@ -216,8 +216,8 @@ h3 {
 
 /* Bibtex 样式 */
 .bibtex {
-    background-color: #f8f8f2; /* 浅色背景 */
-    color: #2d2d2d; /* 深色文字，与背景形成对比 */
+    background-color: #f0f0f0; /* 浅灰色背景 */
+    color: #333333; /* 深色文字，与浅灰色背景形成对比 */
     padding: 20px;
     border-radius: 6px;
     font-family: 'SFMono-Regular', Consolas, monospace; /* 等宽字体 */
