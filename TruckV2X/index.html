@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TruckV2X Dataset</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* 补充中文标题样式 */
-        .cn { color: #5f6368; margin-top: 0.5rem; }
-        .subsection { margin-bottom: 3rem; }
-        .bibtex.cn { font-family: monospace; }
-    </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">TruckV2X</a>
@@ -26,12 +20,27 @@
         </div>
     </nav>
 
-    <!-- 头部横幅 -->
+    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
             <h1>TruckV2X</h1>
-            <p class="tagline">A Truck-Centered Cooperative Perception Dataset</p>
-            <p class="tagline cn">以卡车为中心的协同感知数据集</p>
+            <p class="tagline">The First Truck-Centered Cooperative Perception Dataset</p>
+            
+            <!-- Authors and Affiliations -->
+            <div class="authors">
+                <p>Tenghui Xie¹, Zhiying Song¹, Fuxi Wen¹, Jun Li¹, Guangzhao Liu², Zijian Zhao²</p>
+                <div class="affiliations">
+                    <div class="affiliation">
+                        <img src="images/tsinghua_logo.png" alt="Tsinghua University Logo" class="affiliation-logo">
+                        <span>¹School of Vehicle and Mobility, Tsinghua University</span>
+                    </div>
+                    <div class="affiliation">
+                        <img src="images/faw_logo.png" alt="FAW Jiefang Logo" class="affiliation-logo">
+                        <span>²FAW Jiefang Group Co., Ltd.</span>
+                    </div>
+                </div>
+            </div>
+            
             <div class="hero-buttons">
                 <a href="assets/truckv2x_paper.pdf" class="btn">Paper (PDF)</a>
                 <a href="https://huggingface.co/datasets/XieTenghu1/TruckV2X" class="btn btn-secondary">Download Dataset</a>
@@ -39,194 +48,138 @@
         </div>
     </header>
 
-    <!-- 核心内容区 -->
+    <!-- Main Content -->
     <main>
-        <!-- 1. 项目概述 -->
+        <!-- 1. Project Overview -->
         <section id="overview" class="section">
             <div class="container">
                 <h2>Project Overview</h2>
-                <h2 class="cn">项目概述</h2>
                 <div class="content">
                     <p>
-                        Autonomous trucking faces unique perception challenges due to large vehicle size and dynamic trailer movements, leading to extensive blind spots and occlusions. Existing datasets primarily focus on light vehicles, lacking multi-agent configurations for heavy-duty scenarios. 
-                    </p>
-                    <p class="cn">
-                        自动驾驶卡车因体型庞大和挂车动态运动面临独特的感知挑战，导致大面积盲区和遮挡。现有数据集多聚焦轻型车辆，缺乏针对重型车辆的多智能体配置。
+                        Autonomous trucking faces unique perception challenges due to large vehicle size and dynamic trailer movements, leading to extensive blind spots and occlusions. Existing datasets primarily focus on light vehicles, lacking multi-agent configurations for heavy-duty scenarios.
                     </p>
                     <p>
                         To address this gap, we present <strong>TruckV2X</strong>—the first large-scale truck-centered cooperative perception dataset with multi-modal sensing (LiDAR and cameras) and multi-agent cooperation (tractors, trailers, CAVs, RSUs). It supports the development of occlusion-resistant cooperative perception systems for autonomous trucking.
-                    </p>
-                    <p class="cn">
-                        为此，我们提出<strong>TruckV2X</strong>——首个大规模以卡车为中心的协同感知数据集，融合多模态传感（激光雷达和摄像头）与多智能体协同（拖拉机、挂车、智能网联汽车、路侧单元），为自动驾驶卡车的抗遮挡协同感知系统开发提供支持。
                     </p>
 
                     <div class="key-points">
                         <div class="point">
                             <h3>Dataset Highlights</h3>
-                            <h3 class="cn">数据集亮点</h3>
                             <p>• 88,396 LiDAR frames & 1M camera images<br>• 1.18M 3D bounding box annotations<br>• 64 scenarios covering urban/highway scenes</p>
-                            <p class="cn">• 88,396帧激光雷达点云 & 100万张摄像头图像<br>• 118万个3D边界框标注<br>• 64个场景，覆盖城市/高速公路环境</p>
                         </div>
                         <div class="point">
                             <h3>Key Contributions</h3>
-                            <h3 class="cn">核心贡献</h3>
                             <p>• First truck-specific multi-agent cooperative dataset<br>• Benchmarks for occlusion handling tasks<br>• Quantifies trucks as both occlusion sources and perception enhancers</p>
-                            <p class="cn">• 首个针对卡车的多智能体协同数据集<br>• 提供遮挡处理任务的基准指标<br>• 量化卡车作为遮挡源和感知增强器的双重角色</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. 数据集构建（替代技术方案） -->
+        <!-- 2. Dataset Construction -->
         <section id="dataset-construction" class="section section-alt">
             <div class="container">
                 <h2>Dataset Construction</h2>
-                <h2 class="cn">数据集构建</h2>
                 <div class="content">
-                    <!-- 2.1 仿真平台与车辆建模 -->
+                    <!-- 2.1 Simulation Platform & Vehicle Modeling -->
                     <div class="subsection">
                         <h3>Simulation Platform & Vehicle Modeling</h3>
-                        <h3 class="cn">仿真平台与车辆建模</h3>
                         <p>
                             The dataset is built using CARLA simulator with a semi-trailer truck modeled in Unreal Engine. The truck's physical parameters match real-world specifications:
-                        </p>
-                        <p class="cn">
-                            数据集基于CARLA仿真平台构建，半挂卡车通过Unreal Engine建模，物理参数匹配真实世界规格：
                         </p>
 
                         <div class="figure">
                             <img src="images/truck_model.png" alt="Truck Model in CARLA" class="figure-img">
                             <p class="figure-caption">Fig. 1: Semi-trailer truck model with tractor (8,805kg, 6.51m length) and trailer (20,000kg, 14.25m length) .</p>
-                            <p class="cn figure-caption">图1：半挂卡车模型，含拖拉机（8,805kg，6.51m长）和挂车（20,000kg，14.25m长） 。</p>
                         </div>
                     </div>
 
-                    <!-- 2.2 传感器配置 -->
+                    <!-- 2.2 Sensor Configurations -->
                     <div class="subsection">
                         <h3>Sensor Configurations</h3>
-                        <h3 class="cn">传感器配置</h3>
                         <p>
                             Multi-modal sensors are deployed across all agents to ensure comprehensive environmental coverage:
-                        </p>
-                        <p class="cn">
-                            所有智能体均配备多模态传感器，确保全面的环境覆盖：
                         </p>
 
                         <ul>
                             <li><strong>Tractor & Trailer</strong>: 2×64-channel LiDARs (360° FOV, 120m range, 10Hz) and 5 cameras (800×600 resolution, 90°-120° FOV) .</li>
-                            <li class="cn"><strong>拖拉机与挂车</strong>：2个64线激光雷达（360°视场，120m测距，10Hz采样）和5个摄像头（800×600分辨率，90°-120°视场） 。</li>
                             <li><strong>CAV</strong>: 1×64-channel LiDAR + 4 cameras (360° coverage) .</li>
-                            <li class="cn"><strong>智能网联汽车（CAV）</strong>：1个64线激光雷达 + 4个摄像头（360°覆盖） 。</li>
                             <li><strong>RSU</strong>: 1×64-channel LiDAR + 1 camera (mounted at 4m height to avoid pedestrian blind spots) .</li>
-                            <li class="cn"><strong>路侧单元（RSU）</strong>：1个64线激光雷达 + 1个摄像头（安装于4m高度，减少行人盲区） 。</li>
                         </ul>
 
                         <div class="figure">
                             <img src="images/sensor_layout.png" alt="Sensor Layout" class="figure-img">
                             <p class="figure-caption">Fig. 3: Sensor layout for tractor, trailer, CAV, and RSU .</p>
-                            <p class="cn figure-caption">图3：拖拉机、挂车、CAV及RSU的传感器布局 。</p>
                         </div>
                     </div>
 
-                    <!-- 2.3 场景与标注 -->
+                    <!-- 2.3 Scenarios & Annotations -->
                     <div class="subsection">
                         <h3>Scenarios & Annotations</h3>
-                        <h3 class="cn">场景与标注</h3>
                         <p>
                             The dataset includes 64 scenarios generated in CARLA, covering diverse traffic environments with rich occlusion patterns:
-                        </p>
-                        <p class="cn">
-                            数据集包含64个在CARLA中生成的场景，覆盖多种交通环境，含丰富的遮挡模式：
                         </p>
 
                         <ul>
                             <li><strong>Scenario Types</strong>: T-intersections, roundabouts, highways, and urban streets with 35 vehicle types and 19 VRUs .</li>
-                            <li class="cn"><strong>场景类型</strong>：T型路口、环岛、高速公路和城市街道，含35种车辆和19种弱势道路使用者 。</li>
                             <li><strong>Annotations</strong>: 3D bounding boxes with IDs, speeds, and 7 object categories (light/heavy vehicles, pedestrians, etc.) .</li>
-                            <li class="cn"><strong>标注信息</strong>：3D边界框含ID、速度和7类目标（轻型/重型车辆、行人等） 。</li>
                             <li><strong>Splits</strong>: Training (38 scenarios), Validation (9), Testing (17) .</li>
-                            <li class="cn"><strong>数据集分割</strong>：训练集（38个场景）、验证集（9个）、测试集（17个） 。</li>
                         </ul>
 
                         <div class="figure">
                             <img src="images/scenarios.png" alt="Scenario Examples" class="figure-img">
                             <p class="figure-caption">Fig. 4: Representative scenarios with occlusion annotations (dashed ellipses) .</p>
-                            <p class="cn figure-caption">图4：含遮挡标注（虚线椭圆）的典型场景 。</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. 基准实验 -->
+        <!-- 3. Benchmark Experiments -->
         <section id="benchmarks" class="section">
             <div class="container">
                 <h2>Benchmark Experiments</h2>
-                <h2 class="cn">基准实验</h2>
                 <div class="content">
                     <p>
                         We evaluated 8 state-of-the-art cooperative perception methods on TruckV2X, focusing on occlusion handling performance:
                     </p>
-                    <p class="cn">
-                        我们在TruckV2X上评估了8种主流协同感知方法，重点关注遮挡处理性能：
-                    </p>
 
                     <div class="subsection">
                         <h3>Key Findings</h3>
-                        <h3 class="cn">核心发现</h3>
                         <ul>
                             <li><strong>Early Fusion</strong> outperforms other methods with mAP=47.88% (light vehicles, IoU=0.5) due to direct point cloud integration .</li>
-                            <li class="cn"><strong>早期融合</strong>因直接整合点云表现最优，轻型车mAP达47.88%（IoU=0.5） 。</li>
                             <li><strong>Occlusion Recovery</strong>: Truck-CAV cooperation recovers >80% occluded objects in 60% of scenarios, proving trucks' role as mobile perception platforms .</li>
-                            <li class="cn"><strong>遮挡恢复</strong>：60%的场景中，卡车与CAV协同可恢复>80%的遮挡目标，证明卡车作为移动感知平台的价值 。</li>
                             <li><strong>Turning Impact</strong>: Trailer articulation causes >70% occlusion, emphasizing the need for trailer-tractor cooperation .</li>
-                            <li class="cn"><strong>转弯影响</strong>：挂车铰接导致>70%的遮挡，凸显挂车-拖拉机协同的必要性 。</li>
                         </ul>
                     </div>
 
                     <div class="figure">
                         <img src="images/benchmark_results.png" alt="Benchmark Results" class="figure-img">
                         <p class="figure-caption">Table 3: mAP comparison of cooperative perception methods .</p>
-                        <p class="cn figure-caption">表3：协同感知方法的mAP对比 。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. 资源与引用 -->
+        <!-- 4. Resources & Citation -->
         <section id="resources" class="section section-alt">
             <div class="container">
                 <h2>Resources & Citation</h2>
-                <h2 class="cn">资源与引用</h2>
                 <div class="resources-grid">
                     <div class="resource-card">
                         <h3>Dataset Access</h3>
-                        <h3 class="cn">数据集获取</h3>
                         <ul>
                             <li><a href="https://huggingface.co/datasets/XieTenghu1/TruckV2X" target="_blank">Hugging Face Repository</a></li>
-                            <li class="cn"><a href="https://huggingface.co/datasets/XieTenghu1/TruckV2X" target="_blank">Hugging Face仓库</a></li>
                             <li><a href="assets/truckv2x_paper.pdf">Full Paper (PDF)</a></li>
-                            <li class="cn"><a href="assets/truckv2x_paper.pdf">论文全文（PDF）</a></li>
                         </ul>
                     </div>
                     <div class="resource-card">
                         <h3>Citation</h3>
-                        <h3 class="cn">引用格式</h3>
                         <pre class="bibtex">
 @article{xie2025truckv2x,
   title={TruckV2X: A Truck-Centered Perception Dataset},
   author={Xie, Tenghui and Song, Zhiying and Wen, Fuxi and Li, Jun and Liu, Guangzhao and Zhao, Zijian},
   journal={IEEE Robotics and Automation Letters},
-  year={2025},
-  doi={10.1109/LRA.2025.XXXXXXX}
-}
-                        </pre>
-                        <pre class="bibtex cn">
-@article{xie2025truckv2x,
-  title={TruckV2X: 一个以卡车为中心的感知数据集},
-  author={谢腾辉 and 宋志颖 and 温福喜 and 李军 and 刘广钊 and 赵紫剑},
-  journal={IEEE机器人与自动化快报},
   year={2025},
   doi={10.1109/LRA.2025.XXXXXXX}
 }
@@ -237,11 +190,10 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>© 2025 TruckV2X Dataset | <a href="https://xietenghu1.github.io/">Personal Homepage</a></p>
-            <p class="cn">© 2025 TruckV2X数据集 | <a href="https://xietenghu1.github.io/">个人主页</a></p>
         </div>
     </footer>
 </body>
