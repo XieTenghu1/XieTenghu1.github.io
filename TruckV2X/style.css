@@ -92,7 +92,7 @@ a:hover {
 }
 
 .main-title {
-    font-size: 4.0rem;
+    font-size: 5rem;
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1.05;
@@ -100,8 +100,9 @@ a:hover {
     color: #202124;
 }
 
+/* 增大副标题字体 */
 .subtitle {
-    font-size: 3.0rem;
+    font-size: 1.8rem;
     color: #5f6368;
     font-weight: 500;
     margin-bottom: 2.5rem;
@@ -111,9 +112,10 @@ a:hover {
     letter-spacing: -0.01em;
 }
 
+/* 增大作者名字字体 */
 .authors {
     margin: 1.8rem 0 2.2rem;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     color: #3c4043;
     line-height: 1.7;
 }
@@ -131,12 +133,12 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 0.7rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #5f6368;
 }
 
 .affiliation-logo {
-    height: 26px;
+    height: 28px;
     width: auto;
     filter: contrast(0.9);
 }
@@ -150,12 +152,12 @@ a:hover {
 
 .btn {
     display: inline-block;
-    padding: 11px 24px;
+    padding: 12px 28px;
     background-color: #1a73e8;
     color: white;
     border-radius: 6px;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.1rem;
     letter-spacing: -0.01em;
     transition: all 0.25s ease;
     border: none;
@@ -179,7 +181,7 @@ a:hover {
 }
 
 /* ==============================================
-   主要内容区域（添加两端对齐）
+   主要内容区域（英文正文两端对齐）
 ============================================== */
 .section {
     padding: 70px 0;
@@ -204,14 +206,14 @@ h3 {
     letter-spacing: -0.01em;
 }
 
-/* 核心文本两端对齐 */
+/* 英文正文强制两端对齐 */
 .content p {
     font-size: 1.05rem;
     margin-bottom: 1.2rem;
     color: #3c4043;
     line-height: 1.7;
-    text-align: justify; /* 两端对齐 */
-    text-justify: inter-ideograph; /* 优化中文对齐 */
+    text-align: justify;
+    text-align-last: left; /* 最后一行左对齐，更适合英文 */
 }
 
 .key-points {
@@ -245,7 +247,7 @@ h3 {
     color: #5f6368;
     line-height: 1.6;
     text-align: justify;
-    text-justify: inter-ideograph;
+    text-align-last: left;
 }
 
 .section-alt {
@@ -289,36 +291,16 @@ li {
     margin-bottom: 0.8rem;
     line-height: 1.7;
     text-align: justify;
-    text-justify: inter-ideograph;
+    text-align-last: left;
 }
 
-.resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
-}
-
-.resource-card {
-    padding: 28px;
+/* 引用部分样式 */
+.citation-card {
+    padding: 30px;
     background-color: white;
     border-radius: 8px;
     border: 1px solid #e8eaed;
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-
-.resource-card h3 {
-    color: #1a73e8;
-    margin-bottom: 20px;
-}
-
-.resource-card ul {
-    margin-left: 0;
-    padding-left: 1.2rem;
-}
-
-.resource-card li {
-    margin-bottom: 12px;
 }
 
 .bibtex {
@@ -330,7 +312,12 @@ li {
     overflow-x: auto;
     font-size: 0.9rem;
     line-height: 1.6;
-    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.citation-card p {
+    font-size: 1.05rem;
+    color: #3c4043;
 }
 
 /* ==============================================
@@ -364,12 +351,16 @@ li {
 ============================================== */
 @media (max-width: 768px) {
     .main-title {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
     
     .subtitle {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         max-width: 95%;
+    }
+    
+    .authors {
+        font-size: 1rem;
     }
     
     .nav-container {
@@ -406,11 +397,11 @@ li {
 
 @media (max-width: 480px) {
     .main-title {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
     
     .subtitle {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
     
     .hero {
@@ -434,9 +425,5 @@ li {
     
     h2 {
         font-size: 1.5rem;
-    }
-    
-    .resources-grid {
-        grid-template-columns: 1fr;
     }
 }
