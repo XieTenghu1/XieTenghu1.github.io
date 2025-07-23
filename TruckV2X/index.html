@@ -14,34 +14,36 @@
             <div class="nav-links">
                 <a href="#overview">Overview</a>
                 <a href="#dataset-construction">Dataset Construction</a>
+                <a href="#occlusions">Occlusions Analysis</a>
                 <a href="#benchmarks">Benchmarks</a>
-                <a href="#resources">Resources</a>
+                <a href="#citation">Citation</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section 优化 -->
+    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <!-- 放大论文标题，突出显示 -->
             <h1 class="main-title">TruckV2X</h1>
             <p class="subtitle">The First Truck-Centered Cooperative Perception Dataset</p>
             
-            <!-- 作者及机构信息（保持简洁，不抢标题焦点） -->
+            <!-- Authors and Affiliations -->
             <div class="authors">
                 <p>Tenghui Xie¹, Zhiying Song¹, Fuxi Wen¹, Jun Li¹, Guangzhao Liu², Zijian Zhao²</p>
                 <div class="affiliations">
                     <div class="affiliation">
-                        <span>¹Tsinghua University</span>
+                        <img src="images/tsinghua_logo.png" alt="Tsinghua University Logo" class="affiliation-logo">
+                        <span>¹School of Vehicle and Mobility, Tsinghua University</span>
                     </div>
                     <div class="affiliation">
-                        <span>²FAW Jiefang Group</span>
+                        <img src="images/faw_logo.png" alt="FAW Jiefang Logo" class="affiliation-logo">
+                        <span>²FAW Jiefang Group Co., Ltd.</span>
                     </div>
                 </div>
             </div>
             
             <div class="hero-buttons">
-                <a href="assets/truckv2x_paper.pdf" class="btn">Paper (PDF)</a>
+                <a href="https://arxiv.org/abs/2507.09505v1" class="btn">Paper (arXiv)</a>
                 <a href="https://huggingface.co/datasets/XieTenghu1/TruckV2X" class="btn btn-secondary">Download Dataset</a>
             </div>
         </div>
@@ -134,8 +136,70 @@
             </div>
         </section>
 
-        <!-- 3. Benchmark Experiments -->
-        <section id="benchmarks" class="section">
+        <!-- 3. Analysis of Occlusions (新增部分) -->
+        <section id="occlusions" class="section">
+            <div class="container">
+                <h2>Analysis of Occlusions</h2>
+                <div class="content">
+                    <p>
+                        Occlusions represent one of the most critical challenges in autonomous trucking due to the large size and complex articulation of commercial vehicles. In TruckV2X, we systematically analyze occlusion patterns and their impact on perception performance across diverse scenarios.
+                    </p>
+
+                    <div class="subsection">
+                        <h3>Occlusion Classification</h3>
+                        <p>
+                            We categorize occlusions into three primary types based on their sources and characteristics:
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Self-occlusion</strong>: Caused by the truck's own structure, particularly between tractor and trailer during turning maneuvers. This accounts for 38% of all occlusions in urban scenarios.</li>
+                            <li><strong>Inter-vehicle occlusion</strong>: Occurs when other vehicles block the line of sight. Heavy vehicles contribute to 62% of such occlusions due to their larger profile.</li>
+                            <li><strong>Environmental occlusion</strong>: Caused by static infrastructure like buildings, trees, or barriers. More prevalent in urban canyons (27% of total occlusions).</li>
+                        </ul>
+
+                        <div class="figure">
+                            <img src="images/occlusion_types.png" alt="Occlusion Types" class="figure-img">
+                            <p class="figure-caption">Fig. 5: Visualization of three primary occlusion types in TruckV2X scenarios .</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Occlusion Quantification</h3>
+                        <p>
+                            Our analysis reveals distinct occlusion patterns across scenario types:
+                        </p>
+                        
+                        <ul>
+                            <li>Roundabouts exhibit the highest occlusion rate (41% of objects partially or fully occluded) due to complex vehicle interactions.</li>
+                            <li>Highway scenarios show lower overall occlusion (18%) but longer duration when occlusions occur (average 4.2s).</li>
+                            <li>Trailer articulation angles greater than 15° increase self-occlusion by 2.3× compared to straight-line travel.</li>
+                            <li>Pedestrians are 3.7× more likely to be fully occluded than vehicles due to their smaller size.</li>
+                        </ul>
+
+                        <div class="figure">
+                            <img src="images/occlusion_stats.png" alt="Occlusion Statistics" class="figure-img">
+                            <p class="figure-caption">Fig. 6: Occlusion rates across different scenario types and object categories .</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Impact on Perception</h3>
+                        <p>
+                            Occlusions significantly degrade perception performance, with:
+                        </p>
+                        
+                        <ul>
+                            <li>72% drop in detection accuracy for fully occluded objects in single-agent perception.</li>
+                            <li>Disproportionate impact on small objects (VRUs) with 83% lower mAP compared to large vehicles under similar occlusion conditions.</li>
+                            <li>Cooperative perception showing 4.1× improvement in detecting occluded objects compared to single-agent systems.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Benchmark Experiments -->
+        <section id="benchmarks" class="section section-alt">
             <div class="container">
                 <h2>Benchmark Experiments</h2>
                 <div class="content">
@@ -160,21 +224,13 @@
             </div>
         </section>
 
-        <!-- 4. Resources & Citation -->
-        <section id="resources" class="section section-alt">
+        <!-- 5. Citation -->
+        <section id="citation" class="section">
             <div class="container">
-                <h2>Resources & Citation</h2>
-                <div class="resources-grid">
-                    <div class="resource-card">
-                        <h3>Dataset Access</h3>
-                        <ul>
-                            <li><a href="https://huggingface.co/datasets/XieTenghu1/TruckV2X" target="_blank">Hugging Face Repository</a></li>
-                            <li><a href="assets/truckv2x_paper.pdf">Full Paper (PDF)</a></li>
-                        </ul>
-                    </div>
-                    <div class="resource-card">
-                        <h3>Citation</h3>
-                        <pre class="bibtex">
+                <h2>Citation</h2>
+                <div class="citation-card">
+                    <p>If you find our work useful, please cite our paper:</p>
+                    <pre class="bibtex">
 @article{xie2025truckv2x,
   title={TruckV2X: A Truck-Centered Perception Dataset},
   author={Xie, Tenghui and Song, Zhiying and Wen, Fuxi and Li, Jun and Liu, Guangzhao and Zhao, Zijian},
@@ -182,8 +238,7 @@
   year={2025},
   doi={10.1109/LRA.2025.XXXXXXX}
 }
-                        </pre>
-                    </div>
+                    </pre>
                 </div>
             </div>
         </section>
