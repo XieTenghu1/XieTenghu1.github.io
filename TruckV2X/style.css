@@ -1,5 +1,5 @@
 /* ==============================================
-   基础样式重置与全局配置
+   Base Styles & Global Configuration
 ============================================== */
 * {
     margin: 0;
@@ -37,7 +37,7 @@ a:hover {
 }
 
 /* ==============================================
-   导航栏样式
+   Navigation Bar
 ============================================== */
 .navbar {
     background-color: #ffffff;
@@ -79,7 +79,7 @@ a:hover {
 }
 
 /* ==============================================
-   头部横幅（Hero Section）
+   Hero Section
 ============================================== */
 .hero {
     padding: 80px 0 60px;
@@ -181,7 +181,7 @@ a:hover {
 }
 
 /* ==============================================
-   主要内容区域
+   Main Content
 ============================================== */
 .section {
     padding: 70px 0;
@@ -212,9 +212,50 @@ h3 {
     color: #3c4043;
     line-height: 1.7;
     text-align: justify;
-    text-align-last: left;
 }
 
+/* ==============================================
+   Half-column Layout for Figures and Text
+============================================== */
+.half-column-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 50px 0;
+}
+
+.half-column-image {
+    flex: 1; /* Takes 50% width */
+}
+
+.half-column-text {
+    flex: 1; /* Takes 50% width */
+}
+
+/* Reverse layout for alternating pattern */
+.half-column-container.reverse {
+    flex-direction: row-reverse;
+}
+
+.figure-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e8eaed;
+}
+
+.figure-caption {
+    margin-top: 15px;
+    color: #5f6368;
+    font-style: italic;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* ==============================================
+   Key Points Section
+============================================== */
 .key-points {
     display: flex;
     gap: 24px;
@@ -245,45 +286,10 @@ h3 {
     color: #5f6368;
     line-height: 1.6;
     text-align: justify;
-    text-align-last: left;
 }
 
 .section-alt {
     background-color: #f8f9fa;
-}
-
-/* 容器样式：确保图片居中 */
-.figure {
-    text-align: center;
-    margin: 50px 0;
-}
-
-/* 仅用于 fig1 的半栏样式（50% 宽度） */
-.figure-restricted {
-    max-width: 50%; /* 半栏宽度（相对于父容器） */
-    height: auto; /* 保持比例 */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid #e8eaed;
-}
-
-/* 其他图片的整栏样式（100% 宽度） */
-.figure-img {
-    max-width: 100%; /* 整栏宽度（占满父容器） */
-    height: auto; /* 保持比例 */
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid #e8eaed;
-}
-
-.figure-caption {
-    margin-top: 15px;
-    color: #5f6368;
-    font-style: italic;
-    font-size: 0.95rem;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .subsection {
@@ -300,94 +306,10 @@ li {
     margin-bottom: 0.8rem;
     line-height: 1.7;
     text-align: justify;
-    text-align-last: left;
 }
 
 /* ==============================================
-   表格响应式处理
-============================================== */
-.table-container {
-    overflow-x: auto;
-    margin: 30px 0;
-    padding: 0 10px;
-}
-
-.benchmark-table {
-    width: 100%;
-    min-width: 600px;
-    border-collapse: collapse;
-    margin: 0 auto;
-}
-
-.benchmark-table th,
-.benchmark-table td {
-    padding: 12px 15px;
-    border: 1px solid #e8eaed;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.table-caption {
-    margin-top: 10px;
-    color: #5f6368;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-/* ==============================================
-   资源与引用区域
-============================================== */
-.resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
-}
-
-.resource-card {
-    padding: 28px;
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid #e8eaed;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-
-.resource-card h3 {
-    color: #1a73e8;
-    margin-bottom: 20px;
-}
-
-.resource-card ul {
-    margin-left: 0;
-    padding-left: 1.2rem;
-}
-
-.resource-card li {
-    margin-bottom: 12px;
-}
-
-.bibtex {
-    background-color: #2d2d2d;
-    color: #f8f8f2;
-    padding: 20px;
-    border-radius: 6px;
-    font-family: 'SFMono-Regular', Consolas, monospace;
-    overflow-x: auto;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-top: 15px;
-}
-
-.citation-card {
-    padding: 30px;
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid #e8eaed;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-
-/* ==============================================
-   页脚样式
+   Footer
 ============================================== */
 .footer {
     background-color: #f1f3f4;
@@ -413,7 +335,7 @@ li {
 }
 
 /* ==============================================
-   响应式设计
+   Responsive Design
 ============================================== */
 @media (max-width: 1024px) {
     .main-title {
@@ -458,8 +380,10 @@ li {
         align-items: center;
     }
     
-    .figure {
-        margin: 30px 0;
+    /* Stack half-column layout on mobile */
+    .half-column-container,
+    .half-column-container.reverse {
+        flex-direction: column;
     }
     
     .figure-caption {
@@ -520,20 +444,10 @@ li {
     h2 {
         font-size: 1.8rem;
     }
-    
-    .resources-grid {
-        grid-template-columns: 1fr;
-    }
 
     .content p,
     .content li {
         font-size: 0.95rem;
-    }
-
-    .benchmark-table th,
-    .benchmark-table td {
-        padding: 8px 10px;
-        font-size: 0.85rem;
     }
 
     .nav-links {
