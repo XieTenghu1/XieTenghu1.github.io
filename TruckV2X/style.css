@@ -258,7 +258,7 @@ h3 {
 }
 
 /* 通用图片样式（fig7、fig8等不受限制） */
-.figure-img {
+.figure-restricted {
     max-width: 100%; /* 不限制宽度，可占满容器 */
     height: auto;
     border-radius: 8px;
@@ -267,7 +267,7 @@ h3 {
 }
 
 /* 仅对fig1生效的宽度限制 */
-.figure-restricted {
+.figure-img {
     max-width: 50%; /* 不限制宽度，可占满容器 */
     height: auto;
     border-radius: 8px;
