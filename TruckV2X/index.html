@@ -29,7 +29,7 @@
             
             <!-- Authors and Affiliations -->
             <div class="authors">
-                <p>Tenghui Xie¹, Zhiying Song¹, Fuxi Wen¹, Jun Li¹, Guangzhao Liu², Zijian Zhao²</p>
+                <p>Tenghui Xie¹, Zhiying Song¹, Fuxi Wen¹(Corresponding author), Jun Li¹, Guangzhao Liu², Zijian Zhao²</p>
                 <div class="affiliations">
                     <div class="affiliation">
                         <span>¹School of Vehicle and Mobility, Tsinghua University</span>
@@ -55,16 +55,28 @@
                 <h2>Project Overview</h2>
                 <div class="content">
                     <p>
-                        Autonomous trucking faces unique perception challenges due to large vehicle size and dynamic trailer movements, leading to extensive blind spots and occlusions. Existing datasets primarily focus on light vehicles, lacking multi-agent configurations for heavy-duty scenarios.
+                        Autonomous trucking faces unique perception challenges due to large vehicle size and dynamic trailer movements, leading to extensive blind spots and occlusions. Tractor-trailer systems create persistent blind zones (Figure 1a, 1b) where structural components obstruct both self-perception and neighboring agents’ sensing. Articulated motion exacerbates occlusions during maneuvers, while low-speed operation expands risk zones in mixed traffic.
                     </p>
                     <p>
-                        To address this gap, we present <strong>TruckV2X</strong>—the first large-scale truck-centered cooperative perception dataset with multi-modal sensing (LiDAR and cameras) and multi-agent cooperation (tractors, trailers, CAVs, RSUs). It supports the development of occlusion-resistant cooperative perception systems for autonomous trucking.
+                        Existing datasets (Figure 2) primarily focus on light vehicles, lacking multi-agent configurations for heavy-duty scenarios. To address this gap, we present <strong>TruckV2X</strong>—the first large-scale truck-centered cooperative perception dataset with multi-modal sensing (LiDAR and cameras) and multi-agent cooperation (tractors, trailers, CAVs, RSUs). It supports the development of occlusion-resistant cooperative perception systems for autonomous trucking.
                     </p>
+
+                    <!-- Figure 1: Truck-related occlusions -->
+                    <div class="figure">
+                        <img src="images/fig1.png" alt="Truck-related occlusions" class="figure-img">
+                        <p class="figure-caption">Fig. 1: Illustration of truck-related occlusions. (a) Trailer obstructs tractor; (b) Truck obstructs others; (c) Occluded area at different positions within a 30m radius (tractor-trailer occludes 1.5× more area than passenger cars).</p>
+                    </div>
+
+                    <!-- Figure 2: Dataset comparison -->
+                    <div class="figure">
+                        <img src="images/fig2.png" alt="Dataset comparison" class="figure-img">
+                        <p class="figure-caption">Fig. 2: Datasets for autonomous driving perception. TruckV2X is the first multi-agent collaborative dataset for heavy vehicles (V2V: Vehicle-to-Vehicle, V2I: Vehicle-to-Infrastructure).</p>
+                    </div>
 
                     <div class="key-points">
                         <div class="point">
                             <h3>Dataset Highlights</h3>
-                            <p>• 88,396 LiDAR frames & 1M camera images<br>• 1.18M 3D bounding box annotations<br>• 64 scenarios covering urban/highway scenes</p>
+                            <p>• 88,396 LiDAR frames & 1M camera images<br>• 1.18M 3D bounding box annotations<br>• 64 scenarios covering urban/highway scenes<br>• Multi-agent data: tractors, trailers, CAVs, RSUs</p>
                         </div>
                         <div class="point">
                             <h3>Key Contributions</h3>
@@ -80,55 +92,48 @@
             <div class="container">
                 <h2>Dataset Construction</h2>
                 <div class="content">
-                    <!-- 2.1 Simulation Platform & Vehicle Modeling -->
+                    <!-- 2.1 Vehicle & Sensor Configurations -->
                     <div class="subsection">
-                        <h3>Simulation Platform & Vehicle Modeling</h3>
+                        <h3>Vehicle & Sensor Configurations</h3>
                         <p>
-                            The dataset is built using CARLA simulator with a semi-trailer truck modeled in Unreal Engine. The truck's physical parameters match real-world specifications:
-                        </p>
-
-                        <div class="figure">
-                            <img src="images/truck_model.png" alt="Truck Model in CARLA" class="figure-img">
-                            <p class="figure-caption">Fig. 1: Semi-trailer truck model with tractor (8,805kg, 6.51m length) and trailer (20,000kg, 14.25m length).</p>
-                        </div>
-                    </div>
-
-                    <!-- 2.2 Sensor Configurations -->
-                    <div class="subsection">
-                        <h3>Sensor Configurations</h3>
-                        <p>
-                            Multi-modal sensors are deployed across all agents to ensure comprehensive environmental coverage:
+                            TruckV2X integrates a high-fidelity semi-trailer truck model (Table I) into CARLA via Unreal Engine, with physics-based kinematic constraints for realistic articulation. Each agent is equipped with multi-modal sensors:
                         </p>
 
                         <ul>
-                            <li><strong>Tractor & Trailer</strong>: 2×64-channel LiDARs (360° FOV, 120m range, 10Hz) and 5 cameras (800×600 resolution, 90°-120° FOV).</li>
+                            <li><strong>Tractor/Trailer</strong>: 2×64-channel LiDARs (360° FOV, 120m range, 10Hz) and 5 cameras (800×600 resolution, 90°-120° FOV).</li>
                             <li><strong>CAV</strong>: 1×64-channel LiDAR + 4 cameras (360° coverage).</li>
-                            <li><strong>RSU</strong>: 1×64-channel LiDAR + 1 camera (mounted at 4m height to avoid pedestrian blind spots).</li>
+                            <li><strong>RSU</strong>: 1×64-channel LiDAR + 1 camera (mounted at 4m height to minimize pedestrian blind spots).</li>
                         </ul>
 
+                        <!-- Figure 3: Sensor configurations -->
                         <div class="figure">
-                            <img src="images/sensor_layout.png" alt="Sensor Layout" class="figure-img">
-                            <p class="figure-caption">Fig. 3: Sensor layout for tractor, trailer, CAV, and RSU.</p>
+                            <img src="images/fig3.png" alt="Sensor configurations" class="figure-img">
+                            <p class="figure-caption">Fig. 3: Sensor layouts for tractor, trailer, CAV, and RSU (LiDAR and camera ranges shown).</p>
                         </div>
                     </div>
 
-                    <!-- 2.3 Scenarios & Annotations -->
+                    <!-- 2.2 Scenarios & Data Statistics -->
                     <div class="subsection">
-                        <h3>Scenarios & Annotations</h3>
+                        <h3>Scenarios & Data Statistics</h3>
                         <p>
-                            The dataset includes 64 scenarios generated in CARLA, covering diverse traffic environments with rich occlusion patterns:
+                            The dataset was built using CARLA, with 64 scenarios generated by adding controlled random vehicles and pedestrians. Scenarios cover diverse environments: country roads, urban streets, highways, and intersections (T-shaped, four-way, roundabouts).
                         </p>
 
-                        <ul>
-                            <li><strong>Scenario Types</strong>: T-intersections, roundabouts, highways, and urban streets with 35 vehicle types and 19 VRUs.</li>
-                            <li><strong>Annotations</strong>: 3D bounding boxes with IDs, speeds, and 7 object categories (light/heavy vehicles, pedestrians, etc.).</li>
-                            <li><strong>Splits</strong>: Training (38 scenarios), Validation (9), Testing (17).</li>
-                        </ul>
-
+                        <!-- Figure 4: Representative scenarios -->
                         <div class="figure">
-                            <img src="images/scenarios.png" alt="Scenario Examples" class="figure-img">
-                            <p class="figure-caption">Fig. 4: Representative scenarios with occlusion annotations (dashed ellipses).</p>
+                            <img src="images/fig4.png" alt="Representative scenarios" class="figure-img">
+                            <p class="figure-caption">Fig. 4: Representative scenarios (T-intersection, straight road, four-way intersection, roundabout) with occlusion annotations (dashed ellipses denote blind zones).</p>
                         </div>
+
+                        <!-- Figure 5: Data statistics -->
+                        <div class="figure">
+                            <img src="images/fig5.png" alt="Data statistics" class="figure-img">
+                            <p class="figure-caption">Fig. 5: Dataset statistics. (a) Frames per scenario; (b) Agent distances; (c) Agent speeds; (d) Tractor-trailer articulation angles; (e) Object categories (65% light vehicles, 20% VRUs, 15% heavy vehicles); (f) Co-visible objects; (g) Object-agent distances; (h) Object speeds.</p>
+                        </div>
+
+                        <p>
+                            <strong>Dataset Splits</strong>: Training (38 scenarios, 13,243 frames), Validation (9 scenarios, 2,839 frames), Testing (17 scenarios, 6,017 frames).
+                        </p>
                     </div>
                 </div>
             </div>
@@ -140,59 +145,36 @@
                 <h2>Analysis of Occlusions</h2>
                 <div class="content">
                     <p>
-                        Occlusions represent a critical challenge in truck perception due to the large size and articulated structure of commercial vehicles. This section provides a comprehensive analysis of occlusion patterns in TruckV2X, highlighting the unique challenges faced by autonomous trucking systems.
+                        Occlusions are a critical challenge in truck perception due to large size and articulation. TruckV2X captures extensive occlusion scenarios, with quantitative analysis revealing unique patterns:
                     </p>
 
-                    <div class="subsection">
-                        <h3>Occlusion Classification</h3>
-                        <p>
-                            We categorize occlusions into three primary types based on their sources and characteristics:
-                        </p>
-
-                        <ul>
-                            <li><strong>Self-occlusion</strong>: Caused by the truck's own structure, particularly between tractor and trailer during turning maneuvers. Accounts for 38% of all occlusions in urban scenarios.</li>
-                            <li><strong>Inter-vehicle occlusion</strong>: Occurs between the truck and other vehicles, including passenger cars, buses, and other trucks. Represents 45% of total occlusions.</li>
-                            <li><strong>Environmental occlusion</strong>: Caused by infrastructure elements such as buildings, trees, and barriers. Constitutes 17% of observed occlusions.</li>
-                        </ul>
-
-                        <div class="figure">
-                            <img src="images/occlusion_types.png" alt="Types of Occlusions" class="figure-img">
-                            <p class="figure-caption">Fig. 5: Visualization of three primary occlusion types in TruckV2X scenarios.</p>
-                        </div>
+                    <!-- Figure 6: Occlusion distribution -->
+                    <div class="figure">
+                        <img src="images/fig6.png" alt="Occlusion distribution" class="figure-img">
+                        <p class="figure-caption">Fig. 6: Distribution of occluded objects in 120m range. (a) Truck's occluded objects; (b) CAV's objects occluded by truck; (c) RSU's objects occluded by truck; (d) Tractor's objects occluded by trailer (turning scenarios exacerbate occlusions).</p>
                     </div>
 
                     <div class="subsection">
-                        <h3>Occlusion Quantification</h3>
+                        <h3>Cooperation Benefits: Occlusion Recovery Rate (ORR)</h3>
                         <p>
-                            Our analysis reveals significant variations in occlusion patterns across different scenario types:
+                            Cooperative perception mitigates occlusions. ORR is defined as the proportion of an ego agent’s occluded objects detected by cooperators (range 0-1). Key findings:
                         </p>
-
                         <ul>
-                            <li><strong>Highway scenarios</strong> exhibit longer-duration occlusions (average 2.4s) due to higher speeds and dense traffic.</li>
-                            <li><strong>Urban intersections</strong> show more frequent but shorter occlusions (average 0.8s) due to complex traffic interactions.</li>
-                            <li><strong>Roundabouts</strong> present the highest occlusion density, with 72% of frames containing at least one partially occluded object.</li>
+                            <li>Truck-CAV cooperation recovers >80% occluded objects in 60% of scenarios (short distances improve performance).</li>
+                            <li>RSUs provide stable mid-range support, while trucks act as mobile platforms to reduce blind spots during maneuvers.</li>
                         </ul>
 
+                        <!-- Figure 7: ORR temporal evolution -->
                         <div class="figure">
-                            <img src="images/occlusion_stats.png" alt="Occlusion Statistics" class="figure-img">
-                            <p class="figure-caption">Fig. 6: Occlusion statistics across different scenario types in TruckV2X.</p>
+                            <img src="images/fig7.png" alt="ORR temporal evolution" class="figure-img">
+                            <p class="figure-caption">Fig. 7: Temporal evolution of ORR in a T-intersection scenario. Truck ORR decreases as CAV moves away, while RSU ORR increases (distance correlates with cooperation effectiveness).</p>
                         </div>
-                    </div>
 
-                    <div class="subsection">
-                        <h3>Impact on Perception</h3>
-                        <p>
-                            Occlusions significantly degrade perception performance, with our analysis showing:
-                        </p>
-
-                        <ul>
-                            <li>Object detection accuracy drops by 43% for partially occluded objects and 78% for fully occluded objects using single-agent perception.</li>
-                            <li>Trailer articulation angles greater than 15° increase self-occlusion area by 2.3× compared to straight-line travel.</li>
-                            <li>Heavy vehicles cause 2.7× larger occlusion areas than passenger cars due to their larger profile.</li>
-                        </ul>
-                        <p>
-                            These findings underscore the necessity of cooperative perception approaches for autonomous trucking, where multi-agent data fusion can mitigate occlusion effects.
-                        </p>
+                        <!-- Figure 8: ORR distribution -->
+                        <div class="figure">
+                            <img src="images/fig8.png" alt="ORR distribution" class="figure-img">
+                            <p class="figure-caption">Fig. 8: ORR frequency distribution for different agent configurations (truck, CAV, RSU) with distance probability densities.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -204,21 +186,120 @@
                 <h2>Benchmark Experiments</h2>
                 <div class="content">
                     <p>
-                        We evaluated 8 state-of-the-art cooperative perception methods on TruckV2X, focusing on occlusion handling performance:
+                        We evaluated 8 state-of-the-art cooperative perception methods on TruckV2X, focusing on 3D object detection. Metrics include Average Precision (AP) and mean AP (mAP) at IoU thresholds 0.3, 0.5, 0.7 for light vehicles, heavy vehicles, and VRUs.
                     </p>
 
                     <div class="subsection">
                         <h3>Key Findings</h3>
                         <ul>
-                            <li><strong>Early Fusion</strong> outperforms other methods with mAP=47.88% (light vehicles, IoU=0.5) due to direct point cloud integration.</li>
-                            <li><strong>Occlusion Recovery</strong>: Truck-CAV cooperation recovers >80% occluded objects in 60% of scenarios, proving trucks' role as mobile perception platforms.</li>
-                            <li><strong>Turning Impact</strong>: Trailer articulation causes >70% occlusion, emphasizing the need for trailer-tractor cooperation.</li>
+                            <li><strong>Early Fusion</strong> outperforms other methods (mAP=47.88% at IoU=0.5 for truck ego) due to direct point cloud integration.</li>
+                            <li><strong>Intermediate Fusion</strong> (e.g., AttFuse, V2VNet) performs well for CAV ego, matching early fusion in light vehicle detection.</li>
+                            <li>VRU detection remains challenging (low AP) due to small size and sparse LiDAR points.</li>
                         </ul>
                     </div>
 
-                    <div class="figure">
-                        <img src="images/benchmark_results.png" alt="Benchmark Results" class="figure-img">
-                        <p class="figure-caption">Table 3: mAP comparison of cooperative perception methods.</p>
+                    <!-- Table III: Benchmark results (truck, CAV, RSU as ego) -->
+                    <div class="table-container">
+                        <h3>Table III: Detection Results (Truck, CAV, RSU as Ego)</h3>
+                        <table class="benchmark-table">
+                            <thead>
+                                <tr>
+                                    <th>Ego</th>
+                                    <th>Method</th>
+                                    <th>AP light @0.3</th>
+                                    <th>AP light @0.5</th>
+                                    <th>AP light @0.7</th>
+                                    <th>mAP @0.5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">Truck</td>
+                                    <td>Ego only</td>
+                                    <td>51.16</td>
+                                    <td>47.43</td>
+                                    <td>33.31</td>
+                                    <td>34.78</td>
+                                </tr>
+                                <tr>
+                                    <td>Late Fusion</td>
+                                    <td>72.15</td>
+                                    <td>68.56</td>
+                                    <td>53.27</td>
+                                    <td>42.47</td>
+                                </tr>
+                                <tr>
+                                    <td>Early Fusion</td>
+                                    <td>77.22</td>
+                                    <td>63.25</td>
+                                    <td>49.17</td>
+                                    <td>47.88</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">CAV</td>
+                                    <td>Ego only</td>
+                                    <td>48.13</td>
+                                    <td>46.01</td>
+                                    <td>35.99</td>
+                                    <td>28.04</td>
+                                </tr>
+                                <tr>
+                                    <td>AttFuse</td>
+                                    <td>77.54</td>
+                                    <td>76.63</td>
+                                    <td>69.43</td>
+                                    <td>51.74</td>
+                                </tr>
+                                <tr>
+                                    <td>Early Fusion</td>
+                                    <td>79.10</td>
+                                    <td>76.97</td>
+                                    <td>67.08</td>
+                                    <td>53.18</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="table-caption">Key subset of results (full results in the paper). Best performance in bold.</p>
+                    </div>
+
+                    <!-- Table IV: Benchmark results (tractor as ego with trailer) -->
+                    <div class="table-container">
+                        <h3>Table IV: Detection Results (Tractor as Ego with Trailer Cooperation)</h3>
+                        <table class="benchmark-table">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>AP heavy @0.3</th>
+                                    <th>AP heavy @0.5</th>
+                                    <th>AP heavy @0.7</th>
+                                    <th>mAP @0.5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ego only (tractor)</td>
+                                    <td>62.63</td>
+                                    <td>61.26</td>
+                                    <td>56.28</td>
+                                    <td>39.30</td>
+                                </tr>
+                                <tr>
+                                    <td>Early Fusion (tractor+trailer)</td>
+                                    <td>73.06</td>
+                                    <td>72.19</td>
+                                    <td>67.66</td>
+                                    <td>49.16</td>
+                                </tr>
+                                <tr>
+                                    <td>AttFuse</td>
+                                    <td>69.76</td>
+                                    <td>69.28</td>
+                                    <td>64.83</td>
+                                    <td>48.12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="table-caption">Tractor-trailer cooperation significantly improves heavy vehicle detection.</p>
                     </div>
                 </div>
             </div>
