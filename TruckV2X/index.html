@@ -41,8 +41,8 @@
             </div>
             
             <div class="hero-buttons">
-                <a href="https://arxiv.org/abs/2507.09505v1" class="btn">Paper (arXiv)</a>
-                <a href="https://huggingface.co/datasets/XieTenghu1/TruckV2X" class="btn btn-secondary">Download Dataset</a>
+                <a href="https://arxiv.org/abs/2507.09505v1" class="btn">Paper</a>
+                <a href="https://huggingface.co/datasets/XieTenghu1/TruckV2X" class="btn">Dataset</a>
             </div>
         </div>
     </header>
@@ -144,10 +144,6 @@
                             <img src="images/fig5.png" alt="Data statistics" class="figure-img">
                             <p class="figure-caption">Fig. 5: (a) Frame counts per scenario. (b) Distance statistics between agents. (c) Speed statistics of agents. (d) Articulation angle counts between the tractor and trailer. (e) Object category counts. (f) Statistics of co-visible objects among agents. (g) Distance statistics between objects and agents. (h) Speed statistics of objects.</p>
                         </div>
-
-                        <p>
-                            <strong>Dataset Splits</strong>: Training (38 scenarios, 13,243 frames), Validation (9 scenarios, 2,839 frames), Testing (17 scenarios, 6,017 frames).
-                        </p>
                     </div>
                 </div>
             </div>
@@ -156,7 +152,7 @@
         <!-- 3. Analysis of Occlusions -->
         <section id="occlusions-analysis" class="section">
             <div class="container">
-                <h2>Analysis of Occlusions</h2>
+                <h2>Occlusions Analysis</h2>
                 <div class="content">
                     <p>
                         Occlusions are a critical challenge in truck perception due to large size and articulation. TruckV2X captures extensive occlusion scenarios, with quantitative analysis revealing unique patterns:
@@ -164,7 +160,7 @@
 
                     <div class="figure">
                         <img src="images/fig6.png" alt="Occlusion distribution" class="figure-img">
-                        <p class="figure-caption">Fig. 6: Distribution of occluded objects in 120m range. (a) Truck's occluded objects; (b) CAV's objects occluded by truck; (c) RSU's objects occluded by truck; (d) Tractor's objects occluded by trailer (turning scenarios exacerbate occlusions).</p>
+                        <p class="figure-caption">Fig. 6: Distribution of objects occluded for different agents in a 120m range. Distribution of objects occluded (a) from truck; (b) from CAV by truck; (c) from RSU by truck; (d) from the tractor by trailer.</p>
                     </div>
 
                     <div class="subsection">
@@ -179,14 +175,14 @@
 
                         <div class="figure">
                             <img src="images/fig7.png" alt="ORR temporal evolution" class="figure-img">
-                            <p class="figure-caption">Fig. 7: Temporal evolution of ORR in a T-intersection scenario. Truck ORR decreases as CAV moves away, while RSU ORR increases (distance correlates with cooperation effectiveness).</p>
+                            <p class="figure-caption">Fig. 7: The temporal evolution of occlusion recovery rates (ORR) for CAV provided by truck and CAV, combined with the distances between truck, RSU, and CAV over time, in the T-intersection scenario (left).</p>
                         </div>
 
                         <!-- Figure 8: Half-column reversed -->
                         <div class="half-column-container reverse">
                             <div class="half-column-image">
                                 <img src="images/fig8.png" alt="ORR distribution" class="figure-img">
-                                <p class="figure-caption">Fig. 8: ORR frequency distribution for different agent configurations (truck, CAV, RSU) with distance probability densities.</p>
+                                <p class="figure-caption">Fig. 8: Frequency distribution of occlusion recovery rates (ORR) across various ego and cooperator configurations, with superimposed probability density distributions of inter-agent distances stratified by ORR intervals.</p>
                             </div>
                             <div class="half-column-text">
                                 <h3>Occlusion Recovery Patterns</h3>
@@ -221,13 +217,13 @@
                     <!-- Using fig9 instead of table III -->
                     <div class="figure">
                         <img src="images/fig9.png" alt="Detection results for Truck, CAV, RSU as Ego" class="figure-img">
-                        <p class="figure-caption">Fig. 9: Detection Results (Truck, CAV, RSU as Ego). Performance comparison of different perception methods across various metrics.</p>
+                        <p class="figure-caption">Fig. 9: Benchmark detection results of SOTA cooperative perception methods on TruckV2X, with truck, CAV, and RSU acting as ego in mutual collaboration, where tractor and trailer are integrated via early fusion to function as a unified agent truck.</p>
                     </div>
 
                     <!-- Using fig10 instead of table IV -->
                     <div class="figure">
                         <img src="images/fig10.png" alt="Detection results for Tractor as Ego with Trailer Cooperation" class="figure-img">
-                        <p class="figure-caption">Fig. 10: Detection Results (Tractor as Ego with Trailer Cooperation). Tractor-trailer cooperation significantly improves heavy vehicle detection.</p>
+                        <p class="figure-caption">Fig. 10: Benchmark detection results of SOTA cooperative perception methods on TruckV2X, with tractor(ego) and trailer collaborating. </p>
                     </div>
                 </div>
             </div>
@@ -238,14 +234,13 @@
             <div class="container">
                 <h2>Citation</h2>
                 <div class="citation-card">
-                    <p>If you use TruckV2X in your research, please cite our paper:</p>
+                    <p>If you use TruckV2X or find our work inspiring in your research, please cite our paper:</p>
                     <pre class="bibtex">
 @article{xie2025truckv2x,
   title={TruckV2X: A Truck-Centered Perception Dataset},
   author={Xie, Tenghui and Song, Zhiying and Wen, Fuxi and Li, Jun and Liu, Guangzhao and Zhao, Zijian},
-  journal={IEEE Robotics and Automation Letters},
-  year={2025},
-  doi={10.1109/LRA.2025.XXXXXXX}
+  journal={arXiv preprint arXiv:2507.09505},
+  year={2025}
 }
                     </pre>
                 </div>
