@@ -93,7 +93,7 @@ a:hover {
 
 /* 主标题放大，参考 openvla 风格 */
 .main-title {
-    font-size: 4.5rem;
+    font-size: 4.0rem;
     font-weight: 800;
     letter-spacing: -0.04em; /* 紧凑字间距 */
     line-height: 1.05; /* 紧凑行高 */
@@ -103,7 +103,7 @@ a:hover {
 
 /* 副标题强化定位 */
 .subtitle {
-    font-size: 1.55rem;
+    font-size: 3.0rem;
     color: #5f6368;
     font-weight: 500;
     margin-bottom: 2.5rem;
@@ -116,7 +116,7 @@ a:hover {
 /* 作者与机构信息（弱化处理，不抢焦点） */
 .authors {
     margin: 1.8rem 0 2.2rem;
-    font-size: 0.98rem;
+    font-size: 1.5rem;
     color: #3c4043;
     line-height: 1.7;
 }
