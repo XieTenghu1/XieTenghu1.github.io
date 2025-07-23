@@ -55,24 +55,36 @@
                 <h2>Project Overview</h2>
                 <div class="content">
                     <p>
-                        Autonomous trucking faces unique perception challenges due to large vehicle size and dynamic trailer movements, leading to extensive blind spots and occlusions. Tractor-trailer systems create persistent blind zones (Figure 1a, 1b) where structural components obstruct both self-perception and neighboring agents’ sensing. Articulated motion exacerbates occlusions during maneuvers, while low-speed operation expands risk zones in mixed traffic.
+                        Autonomous trucking faces unique perception challenges due to large vehicle size and dynamic trailer movements, leading to extensive blind spots and occlusions. Tractor-trailer systems create persistent blind zones where structural components obstruct both self-perception and neighboring agents' sensing. Articulated motion exacerbates occlusions during maneuvers, while low-speed operation expands risk zones in mixed traffic.
                     </p>
                     <p>
-                        Existing datasets (Figure 2) primarily focus on light vehicles, lacking multi-agent configurations for heavy-duty scenarios. To address this gap, we present <strong>TruckV2X</strong>—the first large-scale truck-centered cooperative perception dataset with multi-modal sensing (LiDAR and cameras) and multi-agent cooperation (tractors, trailers, CAVs, RSUs). It supports the development of occlusion-resistant cooperative perception systems for autonomous trucking.
+                        Existing datasets primarily focus on light vehicles, lacking multi-agent configurations for heavy-duty scenarios. To address this gap, we present <strong>TruckV2X</strong>—the first large-scale truck-centered cooperative perception dataset with multi-modal sensing (LiDAR and cameras) and multi-agent cooperation (tractors, trailers, CAVs, RSUs). It supports the development of occlusion-resistant cooperative perception systems for autonomous trucking.
                     </p>
 
-                    <!-- Figure 1: 仅对fig1添加宽度限制 -->
-                    <div class="figure">
-                        <img src="images/fig1.png" 
-                             alt="Truck-related occlusions" 
-                             class="figure-restricted"> <!-- 专属类：仅fig1生效 -->
-                        <p class="figure-caption">Fig. 1: Illustration of truck-related occlusions. (a) Trailer obstructs tractor; (b) Truck obstructs others; (c) Occluded area at different positions within a 30m radius (tractor-trailer occludes 1.5× more area than passenger cars).</p>
+                    <!-- Figure 1: Half-column with text (left: image, right: text) -->
+                    <div class="half-column-container">
+                        <div class="half-column-image">
+                            <img src="images/fig1.png" alt="Truck-related occlusions" class="figure-img">
+                            <p class="figure-caption">Fig. 1: Illustration of truck-related occlusions. (a) Trailer obstructs tractor; (b) Truck obstructs others; (c) Occluded area at different positions within a 30m radius (tractor-trailer occludes 1.5× more area than passenger cars).</p>
+                        </div>
+                        <div class="half-column-text">
+                            <h3>Truck-specific Perception Challenges</h3>
+                            <p>Trucks present unique perception challenges due to their large size and articulated structure. The tractor-trailer configuration creates extensive blind zones that significantly impact both self-perception and the perception capabilities of surrounding vehicles.</p>
+                            <p>Our analysis shows that tractor-trailer combinations create 1.5× more occluded area compared to passenger cars within a 30m radius, making cooperative perception essential for safe autonomous trucking operations.</p>
+                        </div>
                     </div>
 
-                    <!-- Figure 2: 不限制宽度 -->
-                    <div class="figure">
-                        <img src="images/fig2.png" alt="Dataset comparison" class="figure-restricted">
-                        <p class="figure-caption">Fig. 2: Datasets for autonomous driving perception. TruckV2X is the first multi-agent collaborative dataset for heavy vehicles (V2V: Vehicle-to-Vehicle, V2I: Vehicle-to-Infrastructure).</p>
+                    <!-- Figure 2: Half-column reversed (left: text, right: image) -->
+                    <div class="half-column-container reverse">
+                        <div class="half-column-image">
+                            <img src="images/fig2.png" alt="Dataset comparison" class="figure-img">
+                            <p class="figure-caption">Fig. 2: Datasets for autonomous driving perception. TruckV2X is the first multi-agent collaborative dataset for heavy vehicles (V2V: Vehicle-to-Vehicle, V2I: Vehicle-to-Infrastructure).</p>
+                        </div>
+                        <div class="half-column-text">
+                            <h3>Dataset Positioning</h3>
+                            <p>TruckV2X fills a critical gap in existing autonomous driving datasets by focusing specifically on heavy-duty vehicles and their unique perception challenges.</p>
+                            <p>Unlike previous datasets that primarily focus on passenger vehicles, TruckV2X incorporates multi-agent cooperation scenarios involving tractors, trailers, other connected vehicles, and road infrastructure, creating a comprehensive platform for developing cooperative perception algorithms.</p>
+                        </div>
                     </div>
 
                     <div class="key-points">
@@ -107,10 +119,17 @@
                             <li><strong>RSU</strong>: 1×64-channel LiDAR + 1 camera (mounted at 4m height to minimize pedestrian blind spots).</li>
                         </ul>
 
-                        <!-- Figure 3: 不限制宽度 -->
-                        <div class="figure">
-                            <img src="images/fig3.png" alt="Sensor configurations" class="figure-restricted">
-                            <p class="figure-caption">Fig. 3: Sensor layouts for tractor, trailer, CAV, and RSU (LiDAR and camera ranges shown).</p>
+                        <!-- Figure 3: Half-column with text -->
+                        <div class="half-column-container">
+                            <div class="half-column-image">
+                                <img src="images/fig3.png" alt="Sensor configurations" class="figure-img">
+                                <p class="figure-caption">Fig. 3: Sensor layouts for tractor, trailer, CAV, and RSU (LiDAR and camera ranges shown).</p>
+                            </div>
+                            <div class="half-column-text">
+                                <h3>Multi-modal Sensing Architecture</h3>
+                                <p>The TruckV2X dataset features a comprehensive sensing architecture designed specifically for heavy vehicle scenarios. Each agent in the dataset is equipped with complementary sensors to capture rich environmental data.</p>
+                                <p>The tractor and trailer units each have dedicated sensor suites to address their unique perception needs, while CAVs and RSUs provide additional perspectives to enable cooperative perception research.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -121,13 +140,11 @@
                             The dataset was built using CARLA, with 64 scenarios generated by adding controlled random vehicles and pedestrians. Scenarios cover diverse environments: country roads, urban streets, highways, and intersections (T-shaped, four-way, roundabouts).
                         </p>
 
-                        <!-- Figure 4: 不限制宽度 -->
                         <div class="figure">
                             <img src="images/fig4.png" alt="Representative scenarios" class="figure-img">
                             <p class="figure-caption">Fig. 4: Representative scenarios (T-intersection, straight road, four-way intersection, roundabout) with occlusion annotations (dashed ellipses denote blind zones).</p>
                         </div>
 
-                        <!-- Figure 5: 不限制宽度 -->
                         <div class="figure">
                             <img src="images/fig5.png" alt="Data statistics" class="figure-img">
                             <p class="figure-caption">Fig. 5: Dataset statistics. (a) Frames per scenario; (b) Agent distances; (c) Agent speeds; (d) Tractor-trailer articulation angles; (e) Object categories (65% light vehicles, 20% VRUs, 15% heavy vehicles); (f) Co-visible objects; (g) Object-agent distances; (h) Object speeds.</p>
@@ -150,7 +167,6 @@
                         Occlusions are a critical challenge in truck perception due to large size and articulation. TruckV2X captures extensive occlusion scenarios, with quantitative analysis revealing unique patterns:
                     </p>
 
-                    <!-- Figure 6: 不限制宽度 -->
                     <div class="figure">
                         <img src="images/fig6.png" alt="Occlusion distribution" class="figure-img">
                         <p class="figure-caption">Fig. 6: Distribution of occluded objects in 120m range. (a) Truck's occluded objects; (b) CAV's objects occluded by truck; (c) RSU's objects occluded by truck; (d) Tractor's objects occluded by trailer (turning scenarios exacerbate occlusions).</p>
@@ -159,23 +175,30 @@
                     <div class="subsection">
                         <h3>Cooperation Benefits: Occlusion Recovery Rate (ORR)</h3>
                         <p>
-                            Cooperative perception mitigates occlusions. ORR is defined as the proportion of an ego agent’s occluded objects detected by cooperators (range 0-1). Key findings:
+                            Cooperative perception mitigates occlusions. ORR is defined as the proportion of an ego agent's occluded objects detected by cooperators (range 0-1). Key findings:
                         </p>
                         <ul>
                             <li>Truck-CAV cooperation recovers >80% occluded objects in 60% of scenarios (short distances improve performance).</li>
                             <li>RSUs provide stable mid-range support, while trucks act as mobile platforms to reduce blind spots during maneuvers.</li>
                         </ul>
 
-                        <!-- Figure 7: 不限制宽度 -->
                         <div class="figure">
                             <img src="images/fig7.png" alt="ORR temporal evolution" class="figure-img">
                             <p class="figure-caption">Fig. 7: Temporal evolution of ORR in a T-intersection scenario. Truck ORR decreases as CAV moves away, while RSU ORR increases (distance correlates with cooperation effectiveness).</p>
                         </div>
 
-                        <!-- Figure 8: 不限制宽度 -->
-                        <div class="figure">
-                            <img src="images/fig8.png" alt="ORR distribution" class="figure-restricted">
-                            <p class="figure-caption">Fig. 8: ORR frequency distribution for different agent configurations (truck, CAV, RSU) with distance probability densities.</p>
+                        <!-- Figure 8: Half-column reversed -->
+                        <div class="half-column-container reverse">
+                            <div class="half-column-image">
+                                <img src="images/fig8.png" alt="ORR distribution" class="figure-img">
+                                <p class="figure-caption">Fig. 8: ORR frequency distribution for different agent configurations (truck, CAV, RSU) with distance probability densities.</p>
+                            </div>
+                            <div class="half-column-text">
+                                <h3>Occlusion Recovery Patterns</h3>
+                                <p>Our analysis of Occlusion Recovery Rate (ORR) demonstrates how cooperative perception can significantly improve object detection in occluded scenarios.</p>
+                                <p>The frequency distribution shows that different agent configurations excel at different distances, with trucks providing valuable perception support in medium-range scenarios, complementing the strengths of CAVs and RSUs.</p>
+                                <p>This highlights the importance of heterogeneous multi-agent cooperation in addressing the unique occlusion challenges of trucking environments.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,108 +223,16 @@
                         </ul>
                     </div>
 
-                    <!-- Table III: Benchmark results -->
-                    <div class="table-container">
-                        <h3>Table III: Detection Results (Truck, CAV, RSU as Ego)</h3>
-                        <table class="benchmark-table">
-                            <thead>
-                                <tr>
-                                    <th>Ego</th>
-                                    <th>Method</th>
-                                    <th>AP light @0.3</th>
-                                    <th>AP light @0.5</th>
-                                    <th>AP light @0.7</th>
-                                    <th>mAP @0.5</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowspan="3">Truck</td>
-                                    <td>Ego only</td>
-                                    <td>51.16</td>
-                                    <td>47.43</td>
-                                    <td>33.31</td>
-                                    <td>34.78</td>
-                                </tr>
-                                <tr>
-                                    <td>Late Fusion</td>
-                                    <td>72.15</td>
-                                    <td>68.56</td>
-                                    <td>53.27</td>
-                                    <td>42.47</td>
-                                </tr>
-                                <tr>
-                                    <td>Early Fusion</td>
-                                    <td>77.22</td>
-                                    <td>63.25</td>
-                                    <td>49.17</td>
-                                    <td>47.88</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="3">CAV</td>
-                                    <td>Ego only</td>
-                                    <td>48.13</td>
-                                    <td>46.01</td>
-                                    <td>35.99</td>
-                                    <td>28.04</td>
-                                </tr>
-                                <tr>
-                                    <td>AttFuse</td>
-                                    <td>77.54</td>
-                                    <td>76.63</td>
-                                    <td>69.43</td>
-                                    <td>51.74</td>
-                                </tr>
-                                <tr>
-                                    <td>Early Fusion</td>
-                                    <td>79.10</td>
-                                    <td>76.97</td>
-                                    <td>67.08</td>
-                                    <td>53.18</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p class="table-caption">Key subset of results (full results in the paper). Best performance in bold.</p>
+                    <!-- Using fig9 instead of table III -->
+                    <div class="figure">
+                        <img src="images/fig9.png" alt="Detection results for Truck, CAV, RSU as Ego" class="figure-img">
+                        <p class="figure-caption">Fig. 9: Detection Results (Truck, CAV, RSU as Ego). Performance comparison of different perception methods across various metrics.</p>
                     </div>
 
-                    <!-- Table IV: Benchmark results -->
-                    <div class="table-container">
-                        <h3>Table IV: Detection Results (Tractor as Ego with Trailer Cooperation)</h3>
-                        <table class="benchmark-table">
-                            <thead>
-                                <tr>
-                                    <th>Method</th>
-                                    <th>AP heavy @0.3</th>
-                                    <th>AP heavy @0.5</th>
-                                    <th>AP heavy @0.7</th>
-                                    <th>mAP @0.5</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Ego only (tractor)</td>
-                                    <td>62.63</td>
-                                    <td>61.26</td>
-                                    <td>56.28</td>
-                                    <td>39.30</td>
-                                </tr>
-                                <tr>
-                                    <td>Early Fusion (tractor+trailer)</td>
-                                    <td>73.06</td>
-                                    <td>72.19</td>
-                                    <td>67.66</td>
-                                    <td>49.16</td>
-                                </tr>
-                                <tr>
-                                    <td>AttFuse</td>
-                                    <td>69.76</td>
-                                    <td>69.28</td>
-                                    <td>64.83</td>
-                                    <td>48.12</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p class="table-caption">Tractor-trailer cooperation significantly improves heavy vehicle detection.</p>
+                    <!-- Using fig10 instead of table IV -->
+                    <div class="figure">
+                        <img src="images/fig10.png" alt="Detection results for Tractor as Ego with Trailer Cooperation" class="figure-img">
+                        <p class="figure-caption">Fig. 10: Detection Results (Tractor as Ego with Trailer Cooperation). Tractor-trailer cooperation significantly improves heavy vehicle detection.</p>
                     </div>
                 </div>
             </div>
