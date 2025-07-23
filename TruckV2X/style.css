@@ -6,7 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Arial, sans-serif;
-    max-width: 100%; /* 防止任何元素溢出屏幕 */
+    max-width: 100%;
 }
 
 html {
@@ -33,7 +33,7 @@ a:hover {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 15px; /* 适配小屏幕边缘距离 */
+    padding: 0 15px;
 }
 
 /* ==============================================
@@ -257,10 +257,19 @@ h3 {
     margin: 50px 0;
 }
 
+/* 通用图片样式（fig7、fig8等不受限制） */
 .figure-img {
-    max-width: 100%; /* 图片宽度不超过容器，确保等比例缩放 */
-    max-height: 200px; /* 图片宽度不超过容器，确保等比例缩放 */
-    height: auto;    /* 高度自动计算，防止变形 */
+    max-width: 100%; /* 不限制宽度，可占满容器 */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e8eaed;
+}
+
+/* 仅对fig1生效的宽度限制 */
+.fig1-restricted {
+    max-width: 50%; /* 不限制宽度，可占满容器 */
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #e8eaed;
@@ -297,14 +306,14 @@ li {
    表格响应式处理
 ============================================== */
 .table-container {
-    overflow-x: auto; /* 允许表格横向滚动 */
+    overflow-x: auto;
     margin: 30px 0;
-    padding: 0 10px; /* 避免边缘紧贴屏幕 */
+    padding: 0 10px;
 }
 
 .benchmark-table {
     width: 100%;
-    min-width: 600px; /* 确保表格内容不压缩 */
+    min-width: 600px;
     border-collapse: collapse;
     margin: 0 auto;
 }
@@ -403,7 +412,7 @@ li {
 }
 
 /* ==============================================
-   响应式设计（移动设备适配）
+   响应式设计
 ============================================== */
 @media (max-width: 1024px) {
     .main-title {
@@ -449,7 +458,7 @@ li {
     }
     
     .figure {
-        margin: 30px 0; /* 减小图片间距 */
+        margin: 30px 0;
     }
     
     .figure-caption {
@@ -457,14 +466,12 @@ li {
         font-size: 0.9rem;
     }
 
-    /* 缩小正文和列表字体 */
     .content p,
     .content li {
         font-size: 1rem;
         line-height: 1.6;
     }
 
-    /* 缩小标题 */
     h2 {
         margin-bottom: 25px;
         font-size: 1.6rem;
@@ -475,7 +482,6 @@ li {
         margin: 20px 0 15px;
     }
 
-    /* 缩小卡片内边距 */
     .point {
         padding: 20px;
     }
@@ -518,13 +524,11 @@ li {
         grid-template-columns: 1fr;
     }
 
-    /* 进一步缩小字体 */
     .content p,
     .content li {
         font-size: 0.95rem;
     }
 
-    /* 表格单元格缩小内边距 */
     .benchmark-table th,
     .benchmark-table td {
         padding: 8px 10px;
