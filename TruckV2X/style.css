@@ -1,4 +1,4 @@
-/* 基础样式重置 */
+/* Base Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* 全局样式 */
+/* Global Styles */
 body {
     color: #333;
     line-height: 1.6;
@@ -39,7 +39,13 @@ h2 {
     padding-bottom: 10px;
 }
 
-/* 导航栏 */
+h3 {
+    font-size: 1.4rem;
+    margin: 20px 0 15px;
+    color: #202124;
+}
+
+/* Navigation Bar */
 .navbar {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -76,7 +82,7 @@ h2 {
     text-decoration: none;
 }
 
-/* 头部横幅 */
+/* Hero Section */
 .hero {
     background-color: #f8f9fa;
     padding: 80px 0;
@@ -84,7 +90,7 @@ h2 {
 }
 
 .hero-content {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -98,12 +104,47 @@ h2 {
     font-size: 1.2rem;
     color: #5f6368;
     margin-bottom: 30px;
+    font-weight: 500;
 }
 
+/* Authors and Affiliations */
+.authors {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.authors p {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.affiliations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.affiliation {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.affiliation-logo {
+    height: 30px;
+    width: auto;
+    filter: grayscale(0.2); /* Subtle logo styling */
+}
+
+/* Hero Buttons */
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .btn {
@@ -129,7 +170,7 @@ h2 {
     background-color: #3c4043;
 }
 
-/* 概述部分 */
+/* Key Points Section */
 .key-points {
     display: flex;
     gap: 20px;
@@ -148,11 +189,12 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* 技术方案部分 */
+/* Alternate Section Styling */
 .section-alt {
     background-color: #f8f9fa;
 }
 
+/* Figures */
 .figure {
     text-align: center;
     margin: 40px 0;
@@ -162,34 +204,22 @@ h2 {
     max-width: 80%;
     border: 1px solid #ddd;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .figure-caption {
     margin-top: 10px;
     color: #5f6368;
     font-style: italic;
+    font-size: 0.95rem;
 }
 
-.architecture-layers {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Subsections */
+.subsection {
+    margin-bottom: 40px;
 }
 
-.layer {
-    padding: 20px;
-    border-left: 4px solid #1a73e8;
-    background-color: white;
-    border-radius: 0 8px 8px 0;
-}
-
-.layer h3 {
-    color: #202124;
-    margin-bottom: 10px;
-}
-
-/* 资源部分 */
+/* Resources Grid */
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -227,7 +257,7 @@ h2 {
     font-size: 0.9rem;
 }
 
-/* 页脚 */
+/* Footer */
 .footer {
     background-color: #202124;
     color: white;
@@ -244,7 +274,7 @@ h2 {
     color: white;
 }
 
-/* 响应式设计（适配手机） */
+/* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -255,15 +285,17 @@ h2 {
         flex-direction: column;
     }
 
-    .architecture-layers {
-        gap: 15px;
-    }
-
-    .resources-grid {
-        grid-template-columns: 1fr;
+    .affiliations {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
 
     .hero h1 {
         font-size: 2.2rem;
+    }
+
+    .figure-img {
+        max-width: 100%;
     }
 }
